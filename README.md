@@ -55,7 +55,7 @@ cd library-management-system
 ### **2. Setup Database**
 
 - Import the `library_db.sql` file into your MySQL database.
-- Update `config.php` with your database credentials.
+- Update `db.php` with your database credentials.
 
 ### **3. Install Dependencies**
 
@@ -70,12 +70,12 @@ composer require phpmailer/phpmailer
 Use XAMPP, WAMP, or a local PHP server:
 
 ```bash
-php -S localhost:8000
+php -S localhost:3000
 ```
 
 ### **5. Access the System**
 
-Open `http://localhost:8000` in your browser.
+Open `http://localhost:3000` in your browser.
 
 ## 🔧 Configuration
 
