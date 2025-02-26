@@ -21,7 +21,7 @@ if (isset($_GET['BookID'])) {
     $stmt->bind_param("i", $bookID);
     $stmt->execute();
 
-    echo "<script>alert('Book reactivated successfully!'); window.location.href='book_list.php';</script>";
+    echo "<script>alert('Book reactivated successfully!'); window.location.href='admin_books.php';</script>";
 }
 
 $conn->close();
