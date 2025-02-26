@@ -48,7 +48,7 @@
         <a href="approve.php" target="main" class="menu-item">Approved Customers</a>
         <a href="reject.php" target="main" class="menu-item">Rejected Customers</a>
         <a href="cust.php" target="main" class="menu-item">Customers Registered</a>
-        <a href="book_list.php" target="main" class="menu-item">All Books in Library</a>
+        <a href="admin_books.php" target="main" class="menu-item">All Books in Library</a>
         <a href="addbooks.php" target="main" class="menu-item">Add Books</a>
         <a href="issue.php" target="main" class="menu-item">Issue / Return Books</a>
         <a href="borrowed.php" target="main" class="menu-item">View All Issued Books</a>
