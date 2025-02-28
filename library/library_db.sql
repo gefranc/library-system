@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2025 at 02:29 PM
+-- Generation Time: Feb 26, 2025 at 08:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -52,26 +52,27 @@ CREATE TABLE `books` (
   `Author` varchar(255) NOT NULL,
   `Genre` varchar(100) NOT NULL,
   `AvailableCopies` int(11) NOT NULL DEFAULT 1,
-  `Active` tinyint(1) DEFAULT 1
+  `Active` tinyint(1) DEFAULT 1,
+  `status` enum('Active','Inactive') DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`BookID`, `Title`, `Author`, `Genre`, `AvailableCopies`, `Active`) VALUES
-(1, 'Brave New World', 'Aldous Huxley', 'Classics', 5, 1),
-(2, 'Moby-Dick', 'Herman Melville', 'Fiction', 3, 1),
-(3, 'Pride and Prejudice', 'Jane Austen', 'Romance', 5, 1),
-(4, 'The Catcher in the Rye', 'J.D. Salinger', 'Fiction', 2, 1),
-(5, 'The Hobbit', 'J.R.R. Tolkien', 'Fantasy', 5, 1),
-(6, 'Dune', 'Frank Herbert', 'Sci-Fi', 3, 1),
-(7, 'Crime and Punishment', 'Fyodor Dostoevsky', 'Classic', 3, 1),
-(8, 'The Lord of the Rings', 'J.R.R. Tolkien', 'Fantasy', 7, 1),
-(9, 'The Alchemist', 'Paulo Coelho', 'Philosophy', 5, 1),
-(10, 'Frankenstein', 'Mary Shelley', 'Horror', 2, 1),
-(11, 'Harry Potter', 'J.K. Rowling', 'Fantasy', 5, 1),
-(12, 'eternals', 'michaels', 'Fiction', 5, 1);
+INSERT INTO `books` (`BookID`, `Title`, `Author`, `Genre`, `AvailableCopies`, `Active`, `status`) VALUES
+(1, 'Brave New World', 'Aldous Huxley', 'Classics', 5, 1, 'Active'),
+(2, 'Moby-Dick', 'Herman Melville', 'Fiction', 3, 1, 'Active'),
+(3, 'Pride and Prejudice', 'Jane Austen', 'Romance', 5, 1, 'Active'),
+(4, 'The Catcher in the Rye', 'J.D. Salinger', 'Fiction', 2, 1, 'Active'),
+(5, 'The Hobbit', 'J.R.R. Tolkien', 'Fantasy', 5, 1, 'Active'),
+(6, 'Dune', 'Frank Herbert', 'Sci-Fi', 3, 1, 'Active'),
+(7, 'Crime and Punishment', 'Fyodor Dostoevsky', 'Classic', 3, 1, 'Active'),
+(8, 'The Lord of the Rings', 'J.R.R. Tolkien', 'Fantasy', 7, 1, 'Active'),
+(9, 'The Alchemist', 'Paulo Coelho', 'Philosophy', 5, 1, 'Active'),
+(10, 'Frankenstein', 'Mary Shelley', 'Horror', 2, 1, 'Active'),
+(11, 'Harry Potter', 'J.K. Rowling', 'Fantasy', 5, 1, 'Active'),
+(12, 'eternals', 'michaels', 'Fiction', 5, 1, 'Active');
 
 -- --------------------------------------------------------
 
@@ -85,16 +86,17 @@ CREATE TABLE `borrowedbooks` (
   `BookID` int(11) NOT NULL,
   `BorrowedDate` date NOT NULL,
   `ReturnDate` date NOT NULL,
-  `Status` enum('Borrowed','Returned','') NOT NULL DEFAULT 'Borrowed'
+  `Status` enum('Borrowed','Returned','') NOT NULL DEFAULT 'Borrowed',
+  `ReturnStatus` enum('Borrowed','Returned') DEFAULT 'Borrowed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `borrowedbooks`
 --
 
-INSERT INTO `borrowedbooks` (`TransactionID`, `CustomerID`, `BookID`, `BorrowedDate`, `ReturnDate`, `Status`) VALUES
-(9, 1, 6, '2025-02-24', '2025-03-10', 'Borrowed'),
-(11, 1, 5, '2025-02-24', '2025-03-10', 'Borrowed');
+INSERT INTO `borrowedbooks` (`TransactionID`, `CustomerID`, `BookID`, `BorrowedDate`, `ReturnDate`, `Status`, `ReturnStatus`) VALUES
+(9, 1, 6, '2025-02-24', '2025-03-10', 'Borrowed', 'Borrowed'),
+(11, 1, 5, '2025-02-24', '2025-03-10', 'Borrowed', 'Borrowed');
 
 -- --------------------------------------------------------
 
