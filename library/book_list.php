@@ -52,7 +52,7 @@ try {
                 <th>Author</th>
                 <th>Genre</th>
                 <th>Available Copies</th>
-                <th>Action</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -64,7 +64,8 @@ try {
                     <td><?php echo htmlspecialchars($book['Genre']); ?></td>
                     <td><?php echo htmlspecialchars($book['AvailableCopies']); ?></td>
                     <td>
-                        <a href="edit_book.php?BookID=<?php echo $book['BookID']; ?>" class="edit-btn">Edit</a>
+                    <span class="<?php echo ($book['status'] == 'Active') ? 'active' : 'inactive'; ?>">
+                    <?php echo htmlspecialchars($book['status']); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
