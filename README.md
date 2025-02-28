@@ -26,18 +26,20 @@ The **Library Management System** is a web-based application designed to manage 
 - **Backend:** PHP, MySQL
 - **Database:** MySQL
 - **Authentication:** PHP sessions, Email verification with PHPMailer
-- **Notifications:** PHPMailer for email alerts
 
 ## 📂 Project Structure
 
 ```
 📂 library-management-system/
 ├── 📁 screenshot/          # Images
-├── 📜 customer.php         # Home page
-├── 📜 admin.php            # User login(combined)
-├── 📜 admin.php            # User registration
-├── 📜 dashboard.php        # User/Admin dashboard
-├── 📜 issue_book.php       # Borrow book functionality
+├── 📜 addbooks.php         # Add book
+├── 📜 home.php             # Home page
+├── 📜 db.php               # Database connection 
+├── 📜 admin.php            # User login(combined, registration, admin login
+├── 📜 admin_book.php       # Admin add book form
+├── 📜 dashboard.php        # Admin dashboard
+├── 📜 customer.php         # User dashboard
+├── 📜 issue.php            # Borrow book functionality/return book
 ├── 📜 return_book.php      # Return book functionality
 ├── 📜 logout.php           # User logout
 └── 📜 README.md            # Project documentation
