@@ -61,6 +61,11 @@ try {
             $stmt = $pdo->prepare("DELETE FROM borrowedbooks WHERE BookID = ? LIMIT 1");
             $stmt->execute([$BookID]);
 
+            // Check if this customer borrowed the book
+        $stmt = $pdo->prepare("SELECT TransactionID FROM borrowedbooks WHERE BookID = ? AND CustomerID = ? AND Status = 'Borrowed' ORDER BY BorrowedDate ASC LIMIT 1");
+        $stmt->execute([$BookID, $CustomerID]);
+        $borrowedBook = $stmt->fetch(PDO::FETCH_ASSOC);
+
             // Increase available copies
             $stmt = $pdo->prepare("UPDATE books SET AvailableCopies = AvailableCopies + 1 WHERE BookID = ?");
             $stmt->execute([$BookID]);
@@ -144,6 +149,8 @@ try {
             <h2>Return a Book</h2>
             <form action="" method="post">
                 <div class="form-group">
+                <label for="CustomerID">Customer ID</label>
+                <input type="text" id="CustomerID" name="CustomerID" required>
                     <label for="return_BookID">Book ID</label>
                     <input type="text" id="return_BookID" name="return_BookID" required>
                 </div>
